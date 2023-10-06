@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<section class="container d-flex justify-content-center mt-5 mb-5">
+        <div class="card p-3 col-3">
+            <h4 class="d-flex justify-content-center mb-4 mt-2">CRIANDO OBJETO</h4>
+
+            <div class="mb-3">
+              <label class="form-label">Digite a largura</label>
+              <input type="text" class="form-control" id="larg">
+              <small id="emailHelp" class="form-text text-muted">Digite o valor com suas medidas: px|vw|vh|etc.</small>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Digite a altura</label>
+              <input type="text" class="form-control" id="alt">
+              <small id="emailHelp" class="form-text text-muted">Digite o valor com suas medidas: px|vw|vh|etc.</small>
+            </div>
+          
+            <div class="mb-3">
+                <label class="form-label">Selecione a cor desejada</label>
+                <select class="form-select" id="cor">
+                    <option value="Azul">Azul</option>
+                    <option value="Amarelo">Amarelo</option>
+                    <option value="Vermelho">Vermelho</option>
+                </select>
+            </div>
+          
+            <div class="mb-3">
+              <label class="form-label">Quantos objetos devem ser criados?</label>
+              <input type="number" class="form-control" value="1" min="1" max="10" id="numObj">
+              <small id="emailHelp" class="form-text text-muted">O mínimo é 1 e o máximo é 10 objetos</small>
+            </div>
+            <button class="btn btn-dark">Criar</button>
+          </div>
+ </section>
+ <script>
+    const btn = document.querySelector('button');
+    
+    btn.addEventListener("click", function(){
+            const cor = document.querySelector('#cor');
+            const largura = document.querySelector('#larg').value;
+            const altura = document.querySelector('#alt').value;
+            const numObj = document.querySelector('#numObj').value;
+            const opcaoTexto = cor.options[cor.selectedIndex].value;
+
+            for(let i = 0; i < numObj; i++){
+                const obj = document.createElement('div');
+                document.body.appendChild(obj);
+                obj.setAttribute('class', opcaoTexto);
+                obj.setAttribute('style', 'width:' + largura + ';height:' + altura + ';margin:20px');
+            }
+            
+        })
+ </script>
+</body>
+</html>
